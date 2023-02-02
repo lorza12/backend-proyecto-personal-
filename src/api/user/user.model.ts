@@ -50,6 +50,11 @@ const UserSchema = new Schema(
       type: String,
       require: true,
     },
+    productId: {
+      type: Schema.Types.ObjectId,
+      require: true,
+      ref:"user"
+    },
     isActive: {
       type: Boolean,
       default: false,
