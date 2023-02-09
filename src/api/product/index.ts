@@ -14,11 +14,11 @@ const router = Router();
 // RESTful API
 
 // GET /api/users
-router.get('/', handleAllGetProducts);
+router.get('/',isAuthenticated,hasRole(['ADMIN']), handleAllGetProducts);
 // GET /api/users/:id
-router.get('/:id', handleGetProducts);
+router.get('/:id',isAuthenticated,hasRole(['ADMIN']), handleGetProducts);
 // POST /api/users
-router.post('/', handleCreateProducts);
+router.post('/',isAuthenticated,hasRole(['ADMIN']), handleCreateProducts);
 // PATCH /api/users/:id
 
 // DELETE /api/users/:id
