@@ -3,7 +3,7 @@ import Products, { ProductsDocument } from "./product.model";
 
 
 export function getAllProducts() {
-  return Products.find()
+  return Products.find({})
    
 }
 
