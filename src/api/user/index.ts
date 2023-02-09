@@ -1,11 +1,11 @@
 import { Router } from 'express';
-import { isAuthenticated } from '../../auth/auth.services';
+import { hasRole, isAuthenticated } from '../../auth/auth.services';
 
 
 
 import {
     handleAllGetUsers,
-    handleGetUser,
+    handleGetMe,
     handleDeleteUser,
     handleCreateUser,
     handleUpdateUser,
@@ -18,7 +18,7 @@ const router = Router();
 // GET /api/users
 router.get('/', handleAllGetUsers);
 // GET /api/users/:id
-router.get('/:id', handleGetUser);
+router.get('/:id', isAuthenticated, hasRole(['USER','ADMIN']), handleGetMe);
 // POST /api/users
 router.post('/', handleCreateUser);
 // PATCH /api/users/:id
