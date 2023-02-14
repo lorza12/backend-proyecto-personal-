@@ -6,7 +6,7 @@ export async function handleUpload(req: Request, res: Response) {
     
   const { path, size } = req.file as Express.Multer.File;
 
-  const maxSize = 1024 * 1024 * 5 // 5MB
+  const maxSize = 1024 * 1024 * 6 // 5MB
 
   if (size > maxSize) {
     fs.unlinkSync(path)
