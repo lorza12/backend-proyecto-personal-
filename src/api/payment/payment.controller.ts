@@ -22,7 +22,7 @@ const stripe = new Stripe(SECRET_KEY, {apiVersion:'2022-11-15'} )
       return res.json({ message: 'success', payment });
     } catch (error) {
       console.log(error)
-      return res.status(500).json(error);
+      return res.status(500).json({ message: 'Error' });
       
     }
   }
